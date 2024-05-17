@@ -1,5 +1,3 @@
-# main.py
-
 bestallningar = {}  # Lagrar alla beställningar
 
 while True:
@@ -9,19 +7,18 @@ while True:
 
     kaksort = input("Ange kaksorten du vill beställa: ")
     antal = int(input("Ange antal kakor du vill beställa: "))
-    
+
+    # Skapa en ny post för namnet om det inte redan finns
     if namn not in bestallningar:
         bestallningar[namn] = {}
-    
-    if kaksort in bestallningar[namn]:
-        bestallningar[namn][kaksort] += antal
-    else:
-        bestallningar[namn][kaksort] = antal
 
-    print(namn + " har lagt till en beställning för " + str(antal) + " " + kaksort + " kakor.")
+    # Lägg till eller uppdatera antalet kakor för den givna kaksorten
+    bestallningar[namn][kaksort] = bestallningar[namn].get(kaksort, 0) + antal
+
+    print(f"{namn} har lagt till en beställning för {antal} {kaksort} kakor.")
 
 print("Alla beställningar:")
-for namn in bestallningar:
-    print(namn + "s beställningar:")
-    for kaksort, antal in bestallningar[namn].items():
-        print("  " + kaksort + ": " + str(antal) + " st")
+for namn, orders in bestallningar.items():
+    print(f"{namn}s beställningar:")
+    for kaksort, antal in orders.items():
+        print(f"  {kaksort}: {antal} st")
