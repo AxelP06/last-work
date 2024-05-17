@@ -1,7 +1,7 @@
-bestallningar = {}  # Lagrar alla beställningar
+bestallningar = {}  # sparar
 
 while True:
-    # Visa aktuella beställningar
+
     print("Aktuella beställningar:")
     if bestallningar:
         for namn in bestallningar:
@@ -15,7 +15,6 @@ while True:
     if namn == 'q':
         break
 
-    # Användare väljer från en lista med kaksorter
     print("Välj en kaksort: Chokladbollar, Kolabollar, Dammsugare, Godis")
     kaksort = input("Ange kaksorten du vill beställa: ")
     if kaksort not in ["Chokladbollar", "Kolabollar", "Dammsugare", "Godis"]:
@@ -24,7 +23,6 @@ while True:
 
     antal = int(input("Ange antal kakburkar du vill beställa: "))
 
-    # Uppdatera beställningar
     if namn not in bestallningar:
         bestallningar[namn] = {}
     if kaksort in bestallningar[namn]:
@@ -34,7 +32,6 @@ while True:
 
     print(namn + " har lagt till en beställning för " + str(antal) + " " + kaksort + " kakburkar.")
 
-# När loop avslutas, visa alla beställningar
 print("Alla beställningar vid programmets avslut:")
 for namn in bestallningar:
     print(namn + "s beställningar:")
