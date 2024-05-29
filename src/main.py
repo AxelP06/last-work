@@ -33,7 +33,7 @@ while True:
     print(namn + " har lagt till en beställning för " + str(antal) + " " + kaksort + " kakburkar.")
 
 print("Alla beställningar vid programmets avslut:")
-with open("myfile.txt", "w") as file:Abdi
+with open("orders.txt", "w") as file:
     for namn in bestallningar:
         print(namn + "s beställningar:")
         file.writelines(namn + "s beställningar:" + " \n")
