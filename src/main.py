@@ -33,7 +33,10 @@ while True:
     print(namn + " har lagt till en beställning för " + str(antal) + " " + kaksort + " kakburkar.")
 
 print("Alla beställningar vid programmets avslut:")
-for namn in bestallningar:
-    print(namn + "s beställningar:")
-    for kaksort in bestallningar[namn]:
-        print("  " + kaksort + ": " + str(bestallningar[namn][kaksort]) + " st")
+with open("myfile.txt", "w") as file:Abdi
+    for namn in bestallningar:
+        print(namn + "s beställningar:")
+        file.writelines(namn + "s beställningar:" + " \n")
+        for kaksort in bestallningar[namn]:
+            print("  " + kaksort + ": " + str(bestallningar[namn][kaksort]) + " st")
+            file.writelines("  " + kaksort + ": " + str(bestallningar[namn][kaksort]) + " st" + " \n")
